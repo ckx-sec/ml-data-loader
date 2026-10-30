@@ -14,4 +14,9 @@ def load_csv(path, batch_size=32):
         if batch:
             yield batch
 
+try:
+    from dataloader._accel import csv_parse as _native_parse
+except ImportError:
+    _native_parse = None
+
 __version__ = "0.2.3"
